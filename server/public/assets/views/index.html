@@ -1,12 +1,33 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" ng-app="myApp">
 <head>
     <meta charset="UTF-8">
     <title></title>
+    <link rel="stylesheet" href="/assets/styles/style.css">
 </head>
 <body>
-    <p>Hey here is the HTMLs</p>
+    <header>
+        <p>Here is an awesome logo</p>
+    </header>
+    <ul>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#code">Code</a></li>
+    </ul>
+
+    <div>
+        <main ng-view></main>
+    </div>
+
+    <footer>
+        <p>Closing off this sweet page </p>
+    </footer>
     <!--SCRIPTS-->
-    <script type="text/javascript" src="/vendors/angular"
+    <script type="text/javascript" src="/vendors/angular/angular.min.js"></script>
+    <script type="text/javascript" src="/vendors/angular/angular-route.min.js"></script>
+
+    <script type="text/javascript" src="/assets/scripts/app.js"></script>
+    <script type="text/javascript" src="/assets/scripts/controllers/controller.js"></script>
+    <!--END SCRIPTS-->
 </body>
 </html>

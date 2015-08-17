@@ -3,7 +3,6 @@
  */
 var gulp = require('gulp');
 var uglify = require('gulp-uglify');
-var watch = require('gulp-watch');
 
 //High level path
 var path = {
@@ -14,24 +13,25 @@ var path = {
 //Location of our angular modules we wish to copy
 var angularSources = [
     'node_modules/angular/angular.min.js',
+    'node_modules/angular-route/angular-route.min.js"'
 ];
 
 //Mmmmm ya gurl get minified
 gulp.task('scripts', function(){
-    return gulp.src('client/scripts/app.js')
+    return gulp.src('client/scripts/**/*')
         .pipe(uglify())
-        .pipe(gulp.dest(path.assets.concat("scripts")));
+        .pipe(gulp.dest("server/public/assets/scripts"));
 });
 
 //Stylish babes yo
 gulp.task('styles', function() {
-    return gulp.src('client/styles/**')
+    return gulp.src('client/styles/**/*')
         .pipe(gulp.dest(path.assets.concat("styles")));
 });
 
 //Ya look at dat view right thur
 gulp.task('html', function() {
-    return gulp.src('client/views/*')
+    return gulp.src('client/views/**/*')
         .pipe(gulp.dest(path.assets.concat("views")));
 });
 
@@ -43,9 +43,9 @@ gulp.task('angular', function() {
 
 //Who watches the watch task?
 gulp.task('watch', function() {
-    gulp.watch('client/scripts/app.js', ['scripts']);
-    gulp.watch('client/styles/*', ['styles']);
-    gulp.watch('client/views/*', ['html']);
+    gulp.watch('client/scripts/**/*', ['scripts']);
+    gulp.watch('client/styles/**/*', ['styles']);
+    gulp.watch('client/views/**/*', ['html']);
 });
 
 //Task registration

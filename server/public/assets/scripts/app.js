@@ -1,1 +1,1 @@
-console.log("Hey my script works!");
+var appControllers=angular.module("appControllers",[]),myApp=angular.module("myApp",["ngRoute","appControllers"]).config(["$routeProvider",function(e){e.when("/home",{templateUrl:"/assets/views/routes/home.html",controller:"SomeController"}).when("/code",{templateUrl:"/assets/views/routes/code.html",controller:"AnotherController"}).when("/projects",{templateUrl:"/assets/views/routes/projects.html",controller:"SomeController"}).otherwise({redirectTo:"/home"})}]);
